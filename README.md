@@ -1,11 +1,11 @@
 # 2-way data binding
 ## Install
-To get started you can simply import <code>./dist/bundle.js</code> in your code using <code>wget</code>
-> $ wget -d ./js/ https://github.com/MaksymBlank/2-way-data-binding/master/dist/data-binding.js
+To get started you can simply import <code>./dist/bundle.js</code> in your code from this repository
+> $ git clone --depth 1 https://github.com/MaksymBlank/2-way-data-binding
 
 Then simply include it to your template before your main.js file
 ```html
-<script src="./js/data-binding.js"></script>
+<script src="./2-way-data-binding/dist/data-binding.js"></script>
 
 <script>
     mx().bind(function($scope){
