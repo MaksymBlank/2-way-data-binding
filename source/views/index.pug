@@ -1,0 +1,115 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css')
+    link(rel='stylesheet', href='css/main.css')
+    //- script(src="./../source/js/data-binding.js")
+    script(src='./../dist/bundle.js')
+    title 2 way Data Biding
+  body
+    .page-header.pt-2.pb-2
+      h1.text-center 2 way Data Binding
+    .container
+      .row
+        .col-md-4
+          .card
+            .card-body
+              .card-title
+                h4
+                  | 2 way input data binding
+              .card-text
+                form
+                  .form-group
+                    label(for='name') First name:
+                    input#name.form-control(type='text', value='Alex', mx-model='name')
+                  .form-group
+                    label(for='name') Last name:
+                    input#lastname.form-control(type='text', value='Blank', mx-model='lastname')
+                  .form-group
+                    label(for='balance') Balance:
+                    input#balance.form-control(type='text', mx-model='balance')
+                  .form-group
+                    label(for='status') Status:
+                    input#status.form-control(type='text', mx-model='status')
+                  .form-group
+                    input.btn.btn-success.btn-block(type='submit', mx-click='getFullName()', value='Get Full Name')
+        .col-md-8
+          .card
+            .card-body
+              .card-title
+                h4
+                  | Output:
+              .card-text
+                p.pb-2
+                  | Hello, 
+                  strong {{name}} 
+                  strong {{lastname}}
+                  | ! How's it going?
+                  br
+                  small
+                    strong NAME
+                    | : Input's value was 'Alex' and $scope.name == 'Max'. $scope priority is higher that input binding. Therefore value equals 'Max'.
+                  br
+                  small
+                    strong LAST NAME
+                    | : Input's value was 'Blank' and $scope.lastname hasn't been declared. Therefore value equals 'Blank'
+                p.pb-2
+                  strong Your middle name:
+                  br
+                  small
+                    strong MIDDLE NAME
+                    | :{{middlename}} ( {.{middlename}.} is not shown because it hasn't declared in $scope and there is no input form with mx-model="middlename"
+                p
+                  | Your status: {{status}}
+                  br
+                  small
+                    strong STATUS:
+                    |  Input's value was empty but there was a declaration $scope.status = 'Active' in $scope, therefore value eqauls 'Active'
+                p
+                  | Your balance: {{balance}}
+                  br
+                  small
+                    strong BALANCE:
+                    |  Input's value was empty but there was a declaration $scope.balance = '1000' in $scope, therefore value eqauls '1000'
+                p
+                  small
+                    strong Get Full Name Button
+                    | : By clicking you will see current value of first and second names, even though last name has not been declared in $scope.
+                div
+                  | Your credits: {{credits}}
+                  br
+                  small
+                    strong CREDITS:
+                    | There is no mx-model for credits, but $scope.credits has been declared and equals '100'
+                  ul
+                    li
+                      | {{credits}} - 
+                      small credits
+                    li
+                      | {{status}} - 
+                      small status
+                    li
+                      | {{balance}} - 
+                      small balance
+                  small
+                    strong MULTIPLE:
+                    |  Here I show that you can bind unlimited times any of the properties with HTML template.
+                  .text-success.p-2
+                    | Here is your name, but as a childNode: {{name}}
+                  span
+                    | You also can bind any properties inside large amount of text. Name 
+                    span.text-success {{name}}
+                    |  will be shown here.
+                hr
+                p
+                  | Hello, 
+                  span(mx-bind='name')
+                  | ! How's it going?
+                  br
+                  |                                 Your balance: 
+                  span(mx-bind='balance')
+                p
+                  small These properties have been binded without {{}}, but with mx-bind="property"

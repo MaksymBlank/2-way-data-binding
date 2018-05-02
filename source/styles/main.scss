@@ -1,0 +1,11 @@
+.form-control{
+    &:focus{
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+small{
+    background-color: #f1f1f1;
+    padding: 3px;
+}

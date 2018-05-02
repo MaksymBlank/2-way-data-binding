@@ -1,0 +1,33 @@
+{
+  "name": "2-way-data-binding",
+  "version": "1.0.0",
+  "description": "Vanilla JS -  2 way data binding",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp && npm run webpack",
+    "webpack": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaksymBlank/2-way-data-binding.git"
+  },
+  "keywords": [
+    "2",
+    "way",
+    "data",
+    "binding",
+    "vanillajs"
+  ],
+  "author": "Maksym Blank",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaksymBlank/2-way-data-binding/issues"
+  },
+  "homepage": "https://github.com/MaksymBlank/2-way-data-binding#readme",
+  "devDependencies": {
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.1.2"
+  },
+  "dependencies": {
+  }
+}

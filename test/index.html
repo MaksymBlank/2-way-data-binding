@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- <script src="./../dist/data-binding.js"></script> -->
+    <!-- <script src="./js/main.js"></script> -->
+    <script src="./js/bundle.js"></script>
+    <title>2 way Data Biding</title>
+  </head>
+  <body>
+    <div class="page-header pt-2 pb-2">
+      <h1 class="text-center">2 way Data Binding</h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">
+                <h4>2 way input data binding</h4>
+              </div>
+              <div class="card-text">
+                <form>
+                  <div class="form-group">
+                    <label for="name">First name:</label>
+                    <input class="form-control" id="name" type="text" value="Alex" mx-model="name">
+                  </div>
+                  <div class="form-group">
+                    <label for="name">Last name:</label>
+                    <input class="form-control" id="lastname" type="text" value="Blank" mx-model="lastname">
+                  </div>
+                  <div class="form-group">
+                    <label for="balance">Balance:</label>
+                    <input class="form-control" id="balance" type="text" mx-model="balance">
+                  </div>
+                  <div class="form-group">
+                    <label for="status">Status:</label>
+                    <input class="form-control" id="status" type="text" mx-model="status">
+                  </div>
+                  <div class="form-group">
+                    <input class="btn btn-success btn-block" type="submit" mx-click="getFullName()" value="Get Full Name">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">
+                <h4>Output:</h4>
+              </div>
+              <div class="card-text">
+                <p class="pb-2">Hello, <strong>{{name}} </strong><strong>{{lastname}}</strong>! How's it going?<br><small><strong>NAME</strong>: Input's value was 'Alex' and $scope.name == 'Max'. $scope priority is higher that input binding. Therefore value equals 'Max'.</small><br><small><strong>LAST NAME</strong>: Input's value was 'Blank' and $scope.lastname hasn't been declared. Therefore value equals 'Blank'</small></p>
+                <p class="pb-2"><strong>Your middle name:</strong><br><small><strong>MIDDLE NAME</strong>:{{middlename}} ( {.{middlename}.} is not shown because it hasn't declared in $scope and there is no input form with mx-model="middlename"</small></p>
+                <p>Your status: {{status}}<br><small><strong>STATUS:</strong> Input's value was empty but there was a declaration $scope.status = 'Active' in $scope, therefore value eqauls 'Active'</small></p>
+                <p>Your balance: {{balance}}<br><small><strong>BALANCE:</strong> Input's value was empty but there was a declaration $scope.balance = '1000' in $scope, therefore value eqauls '1000'</small></p>
+                <p><small><strong>Get Full Name Button</strong>: By clicking you will see current value of first and second names, even though last name has not been declared in $scope.</small></p>
+                <div>Your credits: {{credits}}<br><small><strong>CREDITS:</strong>There is no mx-model for credits, but $scope.credits has been declared and equals '100'</small>
+                  <ul>
+                    <li>{{credits}} - <small>credits</small></li>
+                    <li>{{status}} - <small>status</small></li>
+                    <li>{{balance}} - <small>balance</small></li>
+                  </ul><small><strong>MULTIPLE:</strong> Here I show that you can bind unlimited times any of the properties with HTML template.</small>
+                  <div class="text-success p-2">Here is your name, but as a childNode: {{name}}</div><span>You also can bind any properties inside large amount of text. Name <span class="text-success">{{name}}</span> will be shown here.</span>
+                </div>
+                <hr>
+                <p>Hello, <span mx-bind="name"></span>! How's it going?<br>                                Your balance: <span mx-bind="balance"></span></p>
+                <p><small>These properties have been binded without {{}}, but with mx-bind="property"</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
